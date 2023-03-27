@@ -1,1 +1,3 @@
-"# Python" 
+# Python Fumbles
+
+This is a collection of random jank and not useful for anyone
