@@ -30,5 +30,7 @@ for snack in snackList:
         calories = 0
         elfCounter += 1
 
+#Sort list by values to get the largest value first because I'm a lazy elf
 sortedCaloriesPerElf = sorted(caloriesPerElf.items(), key=lambda x:x[1])
+#Pop the first entry to get key (Elf) and his calories (value)
 print(sortedCaloriesPerElf.pop())
