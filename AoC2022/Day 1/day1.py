@@ -2,7 +2,23 @@
 https://adventofcode.com/2022/day/1
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 """
-snackList = ["1000","2000","3000","","4000","","5000","6000","","7000","8000","9000","","10000"]
+snacksString = """1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000"""
+
+snackList = snacksString.splitlines()
+
 caloriesPerElf = {}
 calories = 0
 elfCounter = 1;
