@@ -96,6 +96,7 @@ def solve_part2():
     for elfGroup in elfGroupListPart2:
         elfGroupBadgeSum += elfGroup.groupBadgeValue
     print("Part2:",elfGroupBadgeSum)
+    
 createPriorityLookup()
 solve_part1()
 solve_part2()
