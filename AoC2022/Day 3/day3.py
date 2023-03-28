@@ -1,309 +1,26 @@
 import string
 
-puzzle_input = """mmbclcsDHCflDDlCrzzrDWjPJvjPvqJPjfpqZQdfWd
-NNFLnFRNhgNQtMLSFSgwSwGJPZWLPvjpjjJGZJPvWPvJ
-BnwFNgVVhwNwVQrmzbrrCHVTmDsm
-CTsVssjPTWPbzhfbfqqpbqJq
-RRttdQlRdnNpdmwBnBDhFrGrqDGBqJJfJD
-HttgcggdNwQtgcpTsvjVPTcssjsv
-bWrpnrpPcFNbfPtwVPddVVDw
-jLgqqJgjZLhHjRqLHLjqHgftpmJVtTmwQmtGddwwDVJm
-HhzgshZLpHLjqhLLZRZpLRbbrlBNsrrNsFWcCvvFCcNN
-PCJJfJhjhzjjdBVBcd
-RnNnMHnRNtWnBSQHVbqSzFcq
-ZlnZZZNmLrNrgZmmccGJwGwmGPJs
-hFZLsjjjMzwPPjqw
-SQtTcpWWcpMSDlQpDCQJqbHzdSzPzJvPPwqqvH
-tVfpGWGDVlCGGDCpVWppVcrZFMrnmnLfsrBrnngLmMBh
-PFPhCmpfhSMWnmgrtgMW
-RRQdGQvTQRzQDGQTQcRqTTQLvsntnltvrWZlsWlZftntrMtt
-NQTzfGfzcdTBhPJSNJbCCVhJ
-sbtqfrqNfcdqsJrfhzQmzhpvzvpQmpNG
-SHsSDsZVHBHnRZDBZRWSVDnwFhzvphggwGhQzQhgwzmmPzmg
-jjHVHBlHljMsJjbbCcdttc
-NccBbvbNZbbvBGPVTGhhlCZCPg
-tdWHQtLLMrrdWQRqWrMrMrMPsTPThDlTssFFCFCVTDtCDC
-zzWmMQQLVQrWrbBczNnwNbnpnN
-THGhBHgHThvnHRrQRpMNSwZSMrwD
-szsCzWljNfVFFVllPPzzVWJMJZQMJbpSrwQCCJMDZbbb
-WzlfFlflfcmfsFPVfWVVhnNgchHndHgdTnqdNHTh
-zPhDwsWgszftMNfPjjLL
-RTRbbJFHSrqRRrHRrjGQBnfjQQMjLnmNnF
-ddpNSNNpSdWsvpllWzsl
-FgDgbSMnhhntCLCC
-HlqzJgPfJJgmrthhrtTLqL
-fjfQgJPGVjwGJcFMcSvdScWjMD
-pnFwRPlVVlLSwpGbvSmZHmbbdbHm
-sCzTQtzrrQMzpthTdvbGHdvdHNsZqqqZ
-ChTTWhWBWCDrrTrjCrhtLwwLFgfLFgjnpfpwLnVg
-MRDfBDMJsQdmGWsM
-pFPqwswhGzWSCwGN
-jphpbgbqgFnqjjnthLtJsZfJRHfllfTllDLflJ
-sdbLCqnbllplrdrsqbZHRPRBcBcBZBcHcZrM
-JJFwDDQmzfmhmWhJhwFWbMbcNBNRBBzbNPHcMHPj
-DFWVQVGGGbpGClllqLSl
-mRmFhZRsmFJfFRzwRrFrqmRFtNLLDTPccVqVtGTLDnPccPDN
-SBddBlZMjpQvvBbZvVDTtDTDDVGnLTMPVT
-dCHWlbHbdbllsRCCgFwrrZCJ
-hwvwFHhlTLwpLDQhpHwTwBLSfvzSZZsvVsqCGqzZSfCvVG
-WNdtmjPjcWdWJWntcWbjzmFzrrVrzsGzsVsSVrZZ
-PbJPntMRbbdJbcNPcNFjnhlwwgpDHRBpggTlQThhpQ
-mJvRGHfWmvWJJVmZZnZVffpglGggrTLNzLwNLrszzNpz
-FqFMMShqjcMcqPbbjPthNgRggPgLwPsgLgszwNpl
-DFQqQMhRhDRmWndDnJvmWW
-jVzfvzSVpnnNSGjjVpNlSNDzqBBmWCBtWWtfFFCCmPmJCCJW
-HLrRLhwrMZbHrWqWBhGPCGBFJW
-wHHMRMQRQrcQRTTcHrwwRcQbDnpvnppzGSnvnSNzDSNTpjnS
-qzrgfppGzPDJHfbZbHZn
-vTsMvMTclhNlFlFhdhdqHHmHJSJDVJnJFFwJHHDn
-slccWTTTcdCcCqRQPrzgBWPPRz
-thfHHdDwbnVzwwdthZlqjZmmTmjfZcfMQl
-sGFGJFFvGpFPCJvLPGPgZlpmlTMcmlmZrmMjcr
-sJGLSWRSPBBCCPRFWPsNBNwMNNVMNwBzzMDhnh
-RwJMwdbzMGWbLtLVQpPl
-gqNfBmBjNmcCqjqjQllWhhQlgDQtpWlh
-cfccjmcNmHrHBmCBcTMGtTJtZzrTvddRGR
-vbbvqMhcrqMQQLHHvFvHHvpPlnPLfVfPnfmwsNwwwlnVls
-ZdBZZgDRDzBRJWBzzDZjDDNWNnNnPfwNPwmSwlnCnfCW
-JgRggTDtZmmbbFqrvT
-lSgzfSzgGcNfDPsbMpspbPnnrrVV
-FmWFBFQHBJJBmmWJFHWFrwtsVrMbnrVVwwwpWMMp
-FFmmJmvZjQBRQRRQZQBvNNglRhDNDffDSDSMGlDD
-VQPBCZVfHQZGRVVpmzPFmgSgbSPTFb
-NcwLjcWnFhCpLvCF
-tNCDtsqltDwtWdncJZVJVRMGdBQffHZH
-pTzgPsLQfMLqTVFLGbVbbFVJVF
-ZnjgjvSwNNbFJVwN
-jWcCnWHWRvWRHHnWRWjvdZnZtspMqfzrMqfQtTPQgfPzfzcM
-CTqHMNSSVnpjNSTFzMwPdslwnlPccbblgcbd
-WDLqvLQRfLBgbJPwlWgdPd
-QRBqqDmZZRBGGfCTpCCSMSmzjSpz
-bPlRhmnPhTwhrvrlRrjgLjgsLpszFldgFlgF
-tGHWfcQHWfLZnsLQnjpn
-cVGtCtGGcNWcWtBStqnWrwmvmbmJwJPwbRBhRRMb
-BjVTVfBsLlLjLcBcZDRJpnJRDPRJqlPRqJ
-SzbQMQzFgfFzmMSrbzGpqqRDtqmnvDHtvppHDm
-CrSQSdgrWdbFQCWggjWZTfBWcwBcTVBjTs
-RtqdCqCTbRfRbbHR
-FhwWWqgGJJgJHLHPFFsDbsFP
-MrpmmwqhMmJMwpvlNvtlTrvtZSSr
-VscvcmcmbhDrRMCCJlqnSlJnSljR
-FWdwWgpZgdBLTgTWFwZBgWpjbCNqPptCSlNCStnSJJNPPJ
-FdFWGgWTQGGbGvvDHDHzMD
-WhhBJrBqBchcQBBqcqqGRZRlrtStlSlRszlzSSRl
-fHdwgdjbNCbCCHNgPgHNPNplSRtQtltlRDZsQfZsZMRQMR
-jQbQNwVNvWFJvqcV
-bjbmmgSjwTWqWwWqcw
-sQGfPZQDPqMMWWWd
-fqBDfqqZZGHGDsNLjtmlttpgBllpJt
-ZDmCWtftfWBLfRDWwbhqcNNtqwjtjwqt
-SnTTsnlPMTlSSsGMMSddSbHjhwJwwjPbcvHwLwcqjj
-GrFGzSgnTzLgDVfQfQrrDDfm
-PngprCCmcBDssRFBSbFRRs
-fjwHtjfNWfGwHfdtjGMdWSSdQTsQRLFSSslPSFTRlS
-jGjMwMffWHNZfhwnDzqCpZDgrqCcPr
-qzGPbzbDZGSPvpvrTvQsQwLWWNLj
-tFddBhgnVnMMhBhLJWLwjQMwMrMLwT
-BHFtVHgtmlhRRZmSTDTpSq
-ZwzLWWWvWdSJdJQwQLzBqqbbhhCcNzchqCNPhb
-rHfDRfHGfHsGTPPmhmrrNhjmNg
-GlfsfRTfsfRtsstfDVHpGsPSFQJSWQMJwdSLwQWpZZLd
-vnvJvpJtQwDBTljHlLHhDL
-zzGqMwqMqbfRfVGzFmLmLTLddjmTSRLBBB
-zGfrbqzwNvPPcCtr
-jwCwSgvPSmCwSqwgbCRQGvsRVnddGZdflsfB
-MhzHLWpMWHHzNzMccDHdnZVZRZRGQnGlGRGLsZ
-nccNHTzWHDcMWHcphpptDrcDJmSgFTPjgPFjTjgSbqJSJqbg
-bVhPWqBBbdbdPqVVqhSfpcmFsfwLnmmjnfBFmn
-TDWDGzgRvrNJJJrzzzGspwpjncsncFmwFmsNfw
-vMDgDJRWgDJtHDJMMPQQMdQlqdlhZZQbbC
-SpdpQqLwrDcmPhggcS
-ZHCZstHMhjGmtPDc
-NNnnRHMZNzTMHZZTTsZMvvRhJJwWzBVLVQJJqWwVhwJpdJ
-mrlMQlQPPPhhCbZRNpRZcffmFmgc
-VvJVJqDqvqjDqvtVttVSHTTHLLcggBNBBSRRFfRLncfFLpBB
-jHVHvdDHtJjtDWjwMhWwhwwwlNswPr
-MJvzvFLhbTnJCvRwWSTmSWWWmRpc
-tlVlNqBsVNNBQPrWgqmcgfwpcWpdcg
-ZBjHPsttQrPrrVsBQpVJzhZhvnnbMMLvFJJZMJ
-hBfJffJJNhnDlmQdnmSGcd
-sQrCpRsPCrwFZQprpQCzljdjMMjMGGdGSmgSFFDS
-zZpzQpwzHRPPTrQwCpRzWZHqLVvtBJvbBtVJhJLhHtLbVv
-DsPnQGnnwlVJbSsb
-HCfCfTDMTfHvCWMZDcRVVSwpbtlhVZbhhpVllp
-TmCMTvfjRCCvcrgNNPQDmNzrLF
-ghwNtnMMRTZtwTphjjBQfLJjfJFdSBTL
-lldzbqzrCrfLJJBBbSWj
-DCvlvqvshNhRndGs
-rWwWWDJWWrFLdRWtRhFZTCbCSqThFTCbmm
-BgMvSzvMpVpBlQNQVgfqhhGCbGbThQZTcbZTCs
-nMpfjVMnzlgRSrnHnwdSDH
-blFhFgFgPLvjDwNvWPnD
-qMBzMCCzZMzJHRrzMFZsnFjQdZnvvNvvWQ
-FzpMpGMRrlSSghLhtG
-hDlVfDdSTjTJwjMTZT
-HgnqtGgQRgRHGtrgqgSZJCrwBZZCrZwWJWjMWZ
-zqRbGNSbbGRRQGRQFzddfVDLVhhfhddV
-JwhLdLNLbwmJggCbbbhjHnDQNZWQWQjWZZPlHQ
-GStzfBFzBMGMftpGcFFQDDjDQfZPfnnmDPfZZj
-FqMBtFstpcTMBMSBGSBtqMhrwJLLTCbLhJbrhTCmrChv
-WwWnTNVBNvWwBngdSqdRJJzncLSLpc
-HPMZlGZQGtQjPdpqScpdjP
-GltlGDDCMMplHCDphtbCHDwmWNBgVgvWhrmWssTBwWWV
-clNNclslcLVWBNlGcVvdSHQvTMHZZSdsdQHM
-gGhfpRwRZHMdJgZJ
-fnDrpDtDrrWGcWVW
-zdVzgdPSWRsHVzPsRRPHRHRRntnQrbDmfDfwfQwwZwfnbgMD
-qNCJvjNLqjNhBBGjBvchhBCqffbffDGMnbwtfnbmQwQnZQMt
-jccqJBvCjqvLTLJhJZpsPdSVdPszPRFssT
-lDLvltDpvSpqGjVVMljGjW
-zrdnswzcSzCgrdnBBjVcBBcjWTVTGb
-PZgFdgHHnrdNDPvvtfNQSJ
-GlLFbFNFtzcvddVpJVfGsCCC
-PWhhMgWTTnhQrqMHTWqwddCVjSwQJddpBdQffp
-WqJZDHPWgJrHnPqhnnqLbzzcLmbFDNmcbRzbbN
-vtDcSfcWfmfTSGwvGDwTvFZVppsszCsVVVFjVzSVSM
-NrrLPhdBRJLbPhrrRJwhBFZsFVzQzszsZzMCZjsJQF
-glgwPqPhrRqPqBdNLwBrLRtnGHnDGmDqHWfGWfGcncHH
-BtSfgpgvQhlSlwzZ
-VHRmVzMPdPVRmcdhQwQwhClNNNCb
-PcPMRWrVRRHTMDRVLPVzBnnJprjppBJtJftvpBfp
-RpgBRVpLgBpDFCCPPVGvPSVVvb
-dHrMdlWwwljjrlHrqmWjmWlGNvNSBBNhhSCSbSvNtNvQGd
-TfmjqrwqHmqHrqlHwHpgfZFBzJgpZnpDcDBZ
-NWTdFWlSMMMWTzVzdQfVpVDwwf
-RHrrGrLqJLBqgpDgQfwfffHz
-cssRRsBjvrGRjLBLrZcBvBqWPQNnlWTmSnjFllWMnCTFll
-DCCDbHDhgbtCLHFHCQdQdSVfbNMdnfcSMS
-ZZjPsqRZJlJlGZPTTqqRwJjZQVnMszVfzdSVScQQSQcNQNfM
-mlGJJqmZjBZPhLBrgrWHFnDL
-wLpCpDmmLwplgwVLwLwVgLLbWWJvJRTsRvbbJWCRsfbssv
-FHHPFZnnhZQrqTTlSJRSrlfvrv
-llZlPQFcZZHchjhjPqnjNFqNwggmDDwVNBBDwtpGMVDwDwVp
-CctttjCrftNrBZpPgpgbNqdq
-JhMwhMTGhMVhwDDMJJHGJJJBldWggWglddlbqlbPHbfqgf
-DvJRMJVVJMTfJtnrnRjCSRFnrL
-snDPGSQPnSSQQFwFFdzWFvmCVmmnjmCJjHjbZZhHZp
-clgrgrMrRfqRlNggmhmHrhvVbpCjCVvV
-fNgcBgqqLMqRqgLggtcTftBFdDFWQzDSQWPPGwWpwtGGsP
-wSJWDCbwVdQfbffHfZZr
-glgTBzzPSFhLFRvRQnZspZQpnvRp
-qTLqglLNFqBqVMJqwwMVcS
-rCWNCsrGrGGHrwQQHrfNDfvgLmmvMmLLMpmLvLPpPgww
-djcdVdqJJcqqBstdBczbStThPPMPghvSpRgmlvghlmLpLp
-qtjdBqzbTTtzTJTzVnbBdsNfDHZGGGDDnGfNDHDHFZFD
-mlzzVHZmzvHflTJHqlJcZTvdcdCCPnddFGhPdBGhMFGCGc
-QDRrWSprdqqCqDhF
-NWtQNRrgWjpLjLsrRrQpfwVVqvwHzvvmVszlvlvm
-DmDDtBDStSLcjLBDhhhmfnNFNlJJMFWFHSMWFpJNHp
-PgMCgVgsCvVwRVRCwvgTzCMRWWwdnWHpNHFwWJJnHdHpprnp
-RgZvvMbsbPCRGRTVPGmfBqDDqmthDQcmcZDc
-WrfWpwwCwpdWCMBzqbtpjVbqzVqp
-RvQQSFJNFZNNLPGbMMPqGtGPzF
-DRvmNhZvJZmNmLcDZQcQNRfnnTMwrMHnfTrTCslsclCn
-httbcnSsgtVMsnssnzghmmHvNmlHVLBHBLrVGGLN
-QFpjZqpqWddZjjDWPWPwjFpfGLBfBBrrNLlBBgGrLCLmrfBB
-QRjRjwjwDhbRTJnhgR
-FTBTZqFVJnVTTPBTVmFbNjRffzrRrNQrPNQbzh
-tCWwHMLCLDstlzdjwbzbQhRl
-GvtChDChvtGSnZqnTVvBVF
-spnFVspFPScprWrGvTpTWpvW
-CgMqCqPLfqBBJGHlMrrJrWWl
-ChjqhCtgdLPSQhQsRnVQ
-bCQVZCJcrSSStrWTdhQqhzzMdhMz
-lPDwNfgpDfBNgfnlDPRDpLWRhLbMjzWqMqWsMLLhLz
-wpNPgPwwBDfvBnfgBfwglHDCJmtFGFmGSmCVrVCGbrCcFv
-zNMJCHVJQmNLQFhZ
-PPRPdGcRdPPjfjflqdjPDPTZQrhTFZFrmQZQBGZCFmLL
-CcWfjjgWtjtMJWzVnSJVzJ
-LjhDjVCVsjNfMsMQ
-SdRpGSndZnlgpdSFtrQMtqNZJtwrMfQQ
-cdRpcpnggRSmWpcLDHCCHfhBmPHTCV
-zpmsJlptmfNwwFswGHThRcTqqHqhhWCWzh
-SLgLMMgnPbSLPbPMDqZZcTWCnZWtRcWCZC
-MbbvQtMVSLVrDMvSMSvSlwNsFNJspJFfNNmJrGGf
-wvcQjfjQvQDJvwNwRdpRScCHbpdMbSpl
-rfrZzrzWWmzlRpMMdpzd
-LqrmFrVhFJjNfFfw
-fVflVfmjQtZhzdrdlN
-HwLLJvCcpcbRvDwpDvDCpqtTPPMNWTzTrHZTMPzPMPdH
-LbvbJqgcqbpJLwvbbbmsmgVGmQmnjdSfSVjV
-FngtfmfTTSFjFDnfjDbwnGzzGBGzbVRwVcwz
-WWMrLLZLvZMWsrCcjzBGcpzLcGcVcB
-NhMWllrsNZNrWZWhjCmmSmfgSTFDHTJfFSNq
-lpqpqlhTSZqfZlwthPHsHcdHPhsCHLrP
-zVDTjMgFbscczPbz
-jRRmvmngNngqTZBqNlftTJ
-wrMrJZPPrNZPZzhzMFPlDqSllsLSbWDWlWqNbb
-VpGftgghtgQfVBgdnpBBngtWDSRbbSqltbRblDDDtqSlqS
-gVggVgpVHTpmndffdVQVTVggjMwwjjMCjJFhPvZMwHvzMzjC
-CtQPCFVlljWrNhTmCgLL
-zsZbsnsqbMznDGNrrTqTLqWRHghN
-zsMMGMSssSSzMGGMcvDGJFphFwPPvPvQfJppwQfj
-njfVlRDDfDwHSfwVwSLnQZqGBbGsnZBnbGqZMbbpGG
-zvddNNdWFgTPFgWNvNgcZqZbbqMMgBpsZrRZpgGG
-CPchdcRTcNvvTWcmTNDSSfjwSDHCfQwlJLHl
-LPmccvvFzzLvvQSzlFvFSSQDDtDfdDVdnDTBDsVTjDndlV
-CbgNZWgZrbbqhrgTnVjjCsGdBfCfTs
-BhwRrNrpQvLzvJSw
-DpGFVsprFpTBJjsnJnnhdjWh
-fbHCcbVHCgfMLwcqfLwgNdqhjRhnJQQdtQWnnSSJJj
-gCZNVNzbHbfNHcHNgfCMLHHzPBDPvPDrlvDrDlvpmFTFBF
-tsBQFgFpFBfsmtLjtgmtrQvCddSwSCwwbRvbwdLvwvRG
-nqPZnMznTZHZlZPfGCHfbHwNVwdRwC
-MPWqqzhZmBWFQfFW
-FNMTTwqwNpVWPgZFFQ
-crScdztJtcccSzWtzzzbStZQRZVVVHZVRgRQPHQhhjSZ
-lCDCCdJJdbCdbcJzrcnrJWbnLLlvMMTLNwwMvfvwvMmNBNMG
-WHsJMlBHCscDPDPtPBRDrL
-jmTvgnqdsbPmSrrPVrwL
-pdTgjgqbTqQFdjjQdqTZzCcJsZzQzcfsCCHMMl
-QqMQGbMGGGzSsQSqCPcCPrCRNNlSZllc
-vDHdmDWTdmwphhDdJwWvHdDCZPZVllPVRPRZNPVcZbTBZN
-pmWHDmpmLgJvhvLpmvdvLWbsMgfsQGjqjtsnGfGqzGzzzQ
-tFvMtFtFMvDDtMvLTpffQWWSGTsDTlSS
-jqVnBjHqhPHbnhqPqWllfpfSTplQPQPGff
-bbjHVHdjzqBznqVHBHzzqVFMJNMvmJtvtmcQFMZQFdJL
-dcldCJQnldtTMdsccThhDDDDFhwTqDRwHR
-ZbGzmgZSBpPPmmbNbZmgmNPPRqFzzVVhrwVHwRVHrVRHRRrR
-bSSNmhPGWWZgQtLWtlCdJCMd
-ttGBGNNgBgVBltlTJGJZpZlHSHCHfDSWpRWWpS
-LhcLrcFFqdhLFLqvwMdhcPWpHHSSZWjjjCDwSSSfpWpD
-fPMrqMMnqMFMbqcfnPMMBsgNttgggBmzJzbmGtbb
-fjFhHHHmfjtLjrFmPhLbCdzBCpPCJQpJJGzJCp
-RcDTnvlVqRnvnvRNcSzCJGJGCSJJCCdQqw
-NTlMZVVlVVVlRTDTNjgGLfhrmgLFfZFGhr
-GmbVGWttmpmbbqDWgVGGGtWNvNCCsHLLFsvHMHHLFnFn
-wQQSdDTfSTsLCNnFwvFv
-dPDBTBjzDftcBqBVbGBg
-LmsfRLwCfZslcjljcjDjwN
-gdRSrHHrSbdrggBzHBShHlqVvVDvcNvlcccjGlGjqB
-zgTnSFFJdngddTZTPTWmspWQWWPR
-RMZMtdsVCsRdddbsVcfcqgNfNDqGqGfzPzmf
-BpwQrJvrjnSnQpBBBJCJjBBQlzvmDPzmDmglPzPgDNfNmNgz
-LjLTnSpwjQTrnnLCBJLQjhstbMhsRtTdtMHMtbtsZd
-PfrPHmrCRmRhcHCcmCfhhmWMLVpwVqFvvGGLVpQSwwSvSFFP
-sJnjsgsDDdjjjdTglTgDBsBnSLdvwSqpQQbwQSLLLFSpQpbL
-tBlngnqgqZggTZWfCRZmMCHHmM
-LGGPQLDLPWmQLVdVdLLGbdvMNjfvHNFNNBbZnNMlHlBf
-CshzsJBqTTwhttzCJzRtcNcMljnnnMjHlFnMcvnHfM
-gqJsCwzBrQWDSgGmSS
-FWVzVJjmbbJVpPwjjJDQsQNDgtcrWtddDQMg
-TqRqCfGGBTzgTzDNNs
-qRffnhhGvvvpwbvFzp
-gLmMTpTCmRhgTLhCCZBSScJFQQQclWWMQJSJQW
-rvfbDGjGssqbbrRSJJWclqcSwzwScc
-PsDfGfVRjfTTTZNBPTZT
-hWqrPzzMhrfmfdNtdZLNrnGndn
-SwvwSFslbbjRsspQwsRwzcnbnNdTnZDbGctZdTNtNt
-wvJJFsvpSSvJFjlHjzplQwJhCfVVhmBmVWhHWmWVWqBqMW
-GjQtgjhPhGgsQjgtthrrvBlvljCrpCdlqBMb
-RFDHDRFRczzlbqlbvqvHdb
-DDFcRWTWFbSwRWbGtSGtgPfGGSPPtg"""
+puzzle_input = """vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw"""
 
 priorityDict = {}
 rucksacksDict = {}
-rucksackList = []
+rucksackListPart1 = []
+elfGroupListPart2 = []
+
+class elfGroupClass:
+    firstElf = None
+    secondElf = None
+    thirdElf = None
+    def __init__(self, rucksacks):
+        rucksackList = rucksacks.splitlines()
+        self.firstElf = rucksackClass(rucksackList[0])
+        self.secondElf = rucksackClass(rucksackList[1])
+        self.thirdElf = rucksackClass(rucksackList[2])
 
 class rucksackClass:
     priorityValue = 0
@@ -311,26 +28,29 @@ class rucksackClass:
     compartment1 = ""
     compartment2 = ""
     priorityItems = ""
+
+    def __setPriorityItems(self):
+        duplicateItems = set()
+        for c1 in self.compartment1:
+            for c2 in self.compartment2:
+                if c1 == c2:
+                    duplicateItems.add(c1)
+        self.priorityItems = duplicateItems
+
     def __init__(self, rucksack):
         self.rucksackSize = len(rucksack)
         self.compartment1 = (rucksack[:int((self.rucksackSize/2))])
         self.compartment2 = (rucksack[int((self.rucksackSize/2)):])
-        self.priorityItems = getPriorityItems(self.compartment1,self.compartment2)
+        self.__setPriorityItems()
         for p in self.priorityItems:
-            self.priorityValue += priorityDict[p]
+            self.priorityValue += priorityDict[p]   
 
 def createRucksacks(rucksacks):
+    rucksackList = []
     for rLine in rucksacks.splitlines():
         rucksack = rucksackClass(rLine)
         rucksackList.append(rucksack)
-    
-def getPriorityItems(input1, input2):
-    duplicateItems = set()
-    for c1 in input1:
-        for c2 in input2:
-            if c1 == c2:
-                duplicateItems.add(c1)
-    return duplicateItems
+    return rucksackList
 
 def createPriorityLookup():
     priorityCounter = 1
@@ -341,13 +61,26 @@ def createPriorityLookup():
         priorityDict[c] = priorityCounter
         priorityCounter += 1
 
+def solve_part1():
+    rucksackListPart1 = createRucksacks(puzzle_input)
+    prioritySum = 0
+    for r in rucksackListPart1:
+        prioritySum += r.priorityValue
+    print('Part1:', prioritySum)
+
+def solve_part2():
+    rucksackList = puzzle_input.splitlines()
+    rucksacksGroup = ""
+    for i in range(len(rucksackList)):
+        if i%3 == 0 and rucksacksGroup != "":
+            elfGroup = elfGroupClass(rucksacksGroup)
+            elfGroupListPart2.append(elfGroup)
+            rucksacksGroup = ""
+        rucksacksGroup += rucksackList[i] + '\n'
+        if i == 10:
+            break
+
+
 createPriorityLookup()
-createRucksacks(puzzle_input)
-prioritySum = 0
-for r in rucksackList:
-    prioritySum += r.priorityValue
-
-print('Part1:', prioritySum)
-
-#split each rucksack into it's two compartments
-#find duplicates per rucksack
+solve_part1()
+solve_part2()
