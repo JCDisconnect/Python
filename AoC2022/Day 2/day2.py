@@ -1,3 +1,7 @@
+"""
+https://adventofcode.com/2022/day/2
+Win the Rock Paper Scissor Tournament by cheating
+"""
 elfCheatSheet = """A Y
 B X
 C Z"""
