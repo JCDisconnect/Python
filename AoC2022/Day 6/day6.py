@@ -11,7 +11,6 @@ def find_sequence_start(input,length):
             counter += 1
             if counter == length:
                 print(i+1)
-                # print(input[i-length+1:i+1])
                 break
         else:
             counter = 0
